@@ -1,7 +1,7 @@
 import os
 from shutil import rmtree, copy2
-from properties_manager import *
-from file_manager import *
+from resources.properties_manager import *
+from resources.file_manager import *
 
 def inject(file_to_inject, target_file, clone_properties):
     if os.path.isdir('cached_files'):
@@ -16,7 +16,7 @@ def inject(file_to_inject, target_file, clone_properties):
 
     if os.path.isfile(file_to_inject) and os.path.isfile(target_file):
         copy2(file_to_inject, 'cached_files/inject.exe')
-        copy2(file_to_inject, 'cached_files/target.exe')
+        copy2(target_file, 'cached_files/target.exe')
 
         generate_file_loader('==')
 
