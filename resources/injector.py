@@ -36,6 +36,14 @@ def inject(file_to_inject, target_file, clone_properties):
         if 'temporary_files' in os.listdir('.'):
             rmtree('temporary_files')
 
+        output_name = target_file.replace('\\', '/').split('/')[-1][:-4]
+        os.system('move dist\\file_loader.exe ' + output_name + '_output.exe')
+
+        if 'dist' in os.listdir('.'):
+            rmtree('dist')
+
+        os.system('cls')
+        print('File building finished.')
 
     else:
         print('asd')
