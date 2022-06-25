@@ -49,7 +49,7 @@ def generate_version_file(file_version, company_name, product_name, product_vers
                             '        StringStruct(u"FileDescription", u"' + file_description + '"),\n' if file_description != None else '',
                             '        StringStruct(u"LegalCopyright", u"' + legal_copyright + '"),\n' if legal_copyright != None else '',
                             '        StringStruct(u"LegalTrademarks", u"' + legal_trademarks + '"),\n' if legal_trademarks != None else '',
-                            "        ])" if company_name + product_name + product_version + original_file_name + file_description + legal_copyright + legal_trademarks != '' else '',
+                            "        ])" if [company_name, product_name, product_version, original_file_name, file_description, legal_copyright, legal_trademarks].count(None) != 7 else '',
                             "]),\n",
                             "    VarFileInfo([VarStruct(u'Translation', [1033, 1200])])\n",
                             "  ]\n",
@@ -57,7 +57,6 @@ def generate_version_file(file_version, company_name, product_name, product_vers
 
     with open('temporary_files/version.txt', 'w', encoding='utf-8') as version_file:
         version_file.write(''.join(version_file_content))
-
 
 def clone_file_properties(source):
     source_properties = get_file_properties(source)
