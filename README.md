@@ -17,6 +17,9 @@ python main.py
 > You can use question mark (?) instead of path to make the software prompt you to manually choose desired files.<br />
 > For example: inject ? > github.exe  will ask you only for payload file and use specified target file.
 
+<br />
+more coming soon...
+
 # Example
 ### I prepared simple program printing elements from "for" loop for demonstration
 It can be whatever payload you want to use. It's best to use executable that is running in background.
