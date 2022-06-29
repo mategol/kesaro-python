@@ -49,3 +49,4 @@ All properties were also cloned.
 ✅ Cloning target file's properties<br />
 ❌ Properties editor for fast and intuitive edition of properties<br />
 ❌ Preset maker for injecting Python source code directly to target file
+❌ software compatibility with Linux OS
