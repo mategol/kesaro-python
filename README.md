@@ -47,6 +47,6 @@ All properties were also cloned.
 ✅ Injecting payload to any executable<br />
 ✅ Command Line Interface<br />
 ✅ Cloning target file's properties<br />
-❌ Properties editor for fast and intuitive edition of properties<br />
-❌ Preset maker for injecting Python source code directly to target file
+❌ Properties editor for fast and intuitive editing of properties<br />
+❌ Preset maker for injecting Python source code directly to target file<br />
 ❌ software compatibility with Linux OS
