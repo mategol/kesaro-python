@@ -1,5 +1,3 @@
-shutil
-tkinter
-os
-win32api
+tk
+pywin32
 pyinstaller
